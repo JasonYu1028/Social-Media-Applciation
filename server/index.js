@@ -53,17 +53,20 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 6001;
+const PORT = 3001 || 6001;
+const PATH = 'mongodb+srv://jasonyu:yzj020923@database.nplvvxs.mongodb.net/?retryWrites=true&w=majority';
+mongoose.set('strictQuery', true);
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
+  .connect(PATH, {
+    useNewUrlParser: true, 
     useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
     /* ADD DATA ONE TIME */
-    User.insertMany(users);
-    Post.insertMany(posts);
+    // User.insertMany(users);
+    // Post.insertMany(posts);
+    
   })
   .catch((error) => console.log(`${error} did not connect`));

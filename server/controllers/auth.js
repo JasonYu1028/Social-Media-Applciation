@@ -28,8 +28,8 @@ export const register = async (req, res) => {
       friends,
       location,
       occupation,
-      viewedProfile: Math.floor(Math.random() * 10000), // 0
-      impressions: Math.floor(Math.random() * 10000), // 0
+      viewedProfile: 0, // Default is 0
+      impressions: 0, // Default is 0
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -48,7 +48,8 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(400).json({ msg: "Invalid credentials: Invalid email or password." });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+    const JWT_SECRET = 'somesuperhardstringtoguess';
+    const token = jwt.sign({ id: user._id }, JWT_SECRET);
     delete user.password;
     res.status(200).json({ token, user });
   } catch (err) {
