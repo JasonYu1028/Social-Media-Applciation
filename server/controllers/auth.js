@@ -43,11 +43,15 @@ export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
-    if (!user) return res.status(400).json({ msg: "User does not exist: Please sing up to login in " });
-
+    if (!user) {
+      // document.getElementById("error-message").textContent = "User does not exist: Please sing up to log in.";
+      return res.status(400).json({ msg: "User does not exist: Please sing up to log in." });
+    }
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials: Invalid email or password." });
-
+    if (!isMatch) {
+      // document.getElementById("error-message").textContent = "Invalid credentials: Input password is wrong.";
+      return res.status(401).json({ msg: "Invalid credentials: Input password is wrong." });
+    }
     const JWT_SECRET = 'somesuperhardstringtoguess';
     const token = jwt.sign({ id: user._id }, JWT_SECRET);
     delete user.password;

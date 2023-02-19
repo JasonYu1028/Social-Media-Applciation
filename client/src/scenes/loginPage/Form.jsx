@@ -129,13 +129,15 @@ const Form = () => {
           >
             {isRegister && (
               <>
-              <TextField
+                <TextField
                   label="First Name"
                   onBlur={handleBlur}
                   onChange={handleChange}
                   value={values.firstName}
                   name="firstName"
-                  error={Boolean(touched.firstName) && Boolean(errors.firstName)}
+                  error={
+                    Boolean(touched.firstName) && Boolean(errors.firstName)
+                  }
                   helperText={touched.firstName && errors.firstName}
                   sx={{ gridColumn: "span 2" }}
                 />
