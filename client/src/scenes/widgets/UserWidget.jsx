@@ -4,7 +4,7 @@ import {
   LocationOnOutlined,
   WorkOutlineOutlined,
 } from "@mui/icons-material";
-import { Box, Typography, Divider, useTheme } from "@mui/material";
+import { Box, Typography, IconButton, Divider, useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
 import FlexBetween from "components/FlexBetween";
 import WidgetWrapper from "components/WidgetWrapper";
@@ -47,6 +47,10 @@ const UserWidget = ({ userId, picturePath }) => {
     impressions,
     friends,
   } = user;
+
+  // function setIfo(id, icon) {
+  //   document.getElementById(id) = 
+  // }
 
   return (
     <WidgetWrapper>
@@ -125,10 +129,12 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={main} fontWeight="500">
                 Twitter
               </Typography>
-              <Typography color={medium}>Social Network</Typography>
+              <Typography id="Twitter_id" color={medium}>Social Network</Typography>
             </Box>
           </FlexBetween>
-          <EditOutlined sx={{ color: main }} />
+          {/* <IconButton onClick={setIfo("Twitter_id", "Twitter_icon")}> */}
+            <EditOutlined id="Twitter_icon" sx={{ color: main }} />
+          {/* </IconButton> */}
         </FlexBetween>
 
         <FlexBetween gap="1rem">

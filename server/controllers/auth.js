@@ -28,8 +28,8 @@ export const register = async (req, res) => {
       friends,
       location,
       occupation,
-      viewedProfile: 0, // Default is 0
-      impressions: 0, // Default is 0
+      viewedProfile: Math.floor(Math.random() * 1000), // Default is 0
+      impressions: Math.floor(Math.random() * 1000), // Default is 0
     });
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
@@ -44,12 +44,12 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
     if (!user) {
-      // document.getElementById("error-message").textContent = "User does not exist: Please sing up to log in.";
+      // errorMessageRef.current.textContent = "User does not exist: Please sign up to log in.";
       return res.status(400).json({ msg: "User does not exist: Please sing up to log in." });
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      // document.getElementById("error-message").textContent = "Invalid credentials: Input password is wrong.";
+      // errorMessageRef.current.textContent = "Invalid credentials: Input password is wrong.";
       return res.status(401).json({ msg: "Invalid credentials: Input password is wrong." });
     }
     const JWT_SECRET = 'somesuperhardstringtoguess';
