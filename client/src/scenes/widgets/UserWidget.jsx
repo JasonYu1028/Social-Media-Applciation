@@ -3,6 +3,7 @@ import {
   EditOutlined,
   LocationOnOutlined,
   WorkOutlineOutlined,
+  Twitter,
 } from "@mui/icons-material";
 import { Box, Typography, IconButton, Divider, useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
@@ -46,6 +47,8 @@ const UserWidget = ({ userId, picturePath }) => {
     viewedProfile,
     impressions,
     friends,
+    twitter,
+    linkedin
   } = user;
 
   // function setIfo(id, icon) {
@@ -129,7 +132,7 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={main} fontWeight="500">
                 Twitter
               </Typography>
-              <Typography id="Twitter_id" color={medium}>Social Network</Typography>
+              <Typography color={medium}>{twitter}</Typography>
             </Box>
           </FlexBetween>
           {/* <IconButton onClick={setIfo("Twitter_id", "Twitter_icon")}> */}
@@ -144,7 +147,7 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={main} fontWeight="500">
                 Linkedin
               </Typography>
-              <Typography color={medium}>Network Platform</Typography>
+              <Typography color={medium}>{linkedin}</Typography>
             </Box>
           </FlexBetween>
           <EditOutlined sx={{ color: main }} />

@@ -39,6 +39,8 @@ const initialValuesRegister = {
   location: "",
   occupation: "",
   picture: "",
+  twitter: "Social Network",
+  linkedin: "Network Platform",
 };
 
 const initialValuesLogin = {
@@ -171,6 +173,26 @@ const Form = () => {
                     Boolean(touched.occupation) && Boolean(errors.occupation)
                   }
                   helperText={touched.occupation && errors.occupation}
+                  sx={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                  label="Twitter Username"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.twitter}
+                  name="twitter"
+                  error={Boolean(touched.twitter) && Boolean(errors.twitter)}
+                  helperText={touched.twitter && errors.twitter}
+                  sx={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                  label="Linkedin Username"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.linkedin}
+                  name="linkedin"
+                  error={Boolean(touched.linkedin) && Boolean(errors.linkedin)}
+                  helperText={touched.linkedin && errors.linkedin}
                   sx={{ gridColumn: "span 4" }}
                 />
                 <Box

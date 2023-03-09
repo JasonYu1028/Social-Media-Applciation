@@ -4,6 +4,8 @@ import Form from "./Form";
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
+  // const mess = require('./Form');
+
   return (
     <Box>
       <Box
@@ -27,8 +29,9 @@ const LoginPage = () => {
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Welcome to FriendSphere, the Social Media for people just like you!
         </Typography>
-        <p id="error-message" style={{color: 'red'}}></p>
+        <p id="errorMessage" style={{color: 'red'}}> </p>
         <Form />
+        <script src="./Form"></script>
       </Box>
     </Box>
   );

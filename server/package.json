@@ -19,10 +19,10 @@
   "main": "index.js",
   "type": "module",
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.21"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon index"
   },
   "keywords": [],
   "author": "",
