@@ -3,7 +3,6 @@ import {
   EditOutlined,
   LocationOnOutlined,
   WorkOutlineOutlined,
-  Twitter,
 } from "@mui/icons-material";
 import { Box, Typography, IconButton, Divider, useTheme } from "@mui/material";
 import UserImage from "components/UserImage";
